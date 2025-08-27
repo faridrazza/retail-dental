@@ -67,7 +67,7 @@ export default function Navigation() {
         {/* Get Started Button */}
         <div className="hidden md:flex items-center"></div>
         {/* Mobile menu button */}
-        <button className="md:hidden ml-auto" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+        <button className={`${language === 'ar' ? 'order-first mr-2' : 'ml-auto'} md:hidden`} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>

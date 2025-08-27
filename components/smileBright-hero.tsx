@@ -28,7 +28,7 @@ export default function SmileBrightHero() {
                 "في عيادتنا نؤمن أن كل ابتسامة تحكي قصة. لذلك نلتزم بتقديم رعاية أسنان شخصية ولطيفة تجعلك تشعر بالراحة والثقة."
               )}
             </p>
-            <div className="flex flex-row gap-3 mt-1 items-center">
+            <div className={`flex flex-row gap-3 mt-1 items-center ${language === 'ar' ? 'justify-center md:justify-start' : ''}`}>
               <Button className="bg-[#5686E7] hover:bg-[#3d5db3] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-none">
                 {t("Book Now", "احجز الآن")}
               </Button>
