@@ -1,6 +1,13 @@
+'use client'
+
 import { Users, DollarSign } from "lucide-react"
+import { useLanguage } from "@/components/theme-provider"
 
 export default function AboutSection() {
+  const { language } = useLanguage()
+  const t = (en: string, ar: string) => (language === "ar" ? ar : en)
+  const dirClass = language === "ar" ? "text-right" : "text-left"
+
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -10,31 +17,31 @@ export default function AboutSection() {
             <div className="bg-gradient-to-br from-[#5686E7]/10 to-[#5686E7]/20 rounded-3xl p-8 relative overflow-hidden">
               <img
                 src="/happy-young-woman-pointing-to-her-perfect-white-te.png"
-                alt="Happy patient pointing to her smile"
+                alt={t("Happy patient pointing to her smile", "مريضة سعيدة تشير إلى ابتسامتها")}
                 className="w-full h-auto rounded-2xl"
               />
 
               {/* Stats overlays */}
               <div className="absolute top-4 right-4 bg-white rounded-2xl p-4 shadow-lg">
                 <div className="text-3xl font-bold text-[#5686E7]">10k+</div>
-                <div className="text-sm text-gray-600">Patients Treated</div>
+                <div className="text-sm text-gray-600">{t("Patients Treated", "مرضى تمت معالجتهم")}</div>
               </div>
 
               <div className="absolute bottom-4 left-4 bg-white rounded-2xl p-4 shadow-lg">
                 <div className="text-3xl font-bold text-[#5686E7]">50+</div>
-                <div className="text-sm text-gray-600">Dental Care Plans</div>
+                <div className="text-sm text-gray-600">{t("Dental Care Plans", "خطط رعاية الأسنان")}</div>
               </div>
             </div>
 
             {/* Bottom text */}
             <div className="mt-4 text-center">
-              <p className="text-gray-600">Committed to restoring smiles</p>
-              <p className="text-gray-600">and improving lives every day.</p>
+              <p className="text-gray-600">{t("Committed to restoring smiles", "ملتزمون باستعادة الابتسامات")}</p>
+              <p className="text-gray-600">{t("and improving lives every day.", "وتحسين الحياة كل يوم.")}</p>
             </div>
           </div>
 
           {/* Right side - Content */}
-          <div className="space-y-8">
+          <div className={`space-y-8 ${dirClass}`}>
             {/* Header */}
             <div>
               <div className="flex items-center gap-3 mb-4">
@@ -43,15 +50,20 @@ export default function AboutSection() {
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>
                 </div>
-                <span className="text-gray-500 text-sm font-medium">About</span>
+                <span className="text-gray-500 text-sm font-medium">{t("About", "نبذة")}</span>
               </div>
 
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Why <span className="text-[#5686E7]">SmileBright</span> Dental?
+                {t("Why ", "لماذا ")}
+                <span className="text-[#5686E7]">SmileBright</span>
+                {t(" Dental?", " للأسنان؟")}
               </h2>
 
               <p className="text-gray-600 text-lg">
-                We believe that a healthy smile is a confident smile. Our team of experienced dentists and caring staff.
+                {t(
+                  "We believe that a healthy smile is a confident smile. Our team of experienced dentists and caring staff.",
+                  "نؤمن بأن الابتسامة الصحية هي ابتسامة واثقة. فريقنا من أطباء الأسنان ذوي الخبرة وطاقمنا اللطيف بجانبك دائمًا."
+                )}
               </p>
             </div>
 
@@ -62,10 +74,12 @@ export default function AboutSection() {
                   <Users className="w-6 h-6 text-[#5686E7]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Experienced cosmetic</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{t("Experienced cosmetic", "خبرة في التجميل")}</h3>
                   <p className="text-gray-600">
-                    Spacious, clean, and designed for your comfort, our treatment rooms are equipped with the latest
-                    dental technology.
+                    {t(
+                      "Spacious, clean, and designed for your comfort, our treatment rooms are equipped with the latest dental technology.",
+                      "غرف العلاج لدينا فسيحة ونظيفة ومصممة لراحتك ومجهزة بأحدث تقنيات طب الأسنان."
+                    )}
                   </p>
                 </div>
               </div>
@@ -75,10 +89,12 @@ export default function AboutSection() {
                   <DollarSign className="w-6 h-6 text-[#5686E7]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Affordable pricing</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{t("Affordable pricing", "أسعار مناسبة")}</h3>
                   <p className="text-gray-600">
-                    Spacious, clean, and designed for your comfort, our treatment rooms are equipped with the latest
-                    dental technology.
+                    {t(
+                      "Spacious, clean, and designed for your comfort, our treatment rooms are equipped with the latest dental technology.",
+                      "غرف العلاج لدينا فسيحة ونظيفة ومصممة لراحتك ومجهزة بأحدث تقنيات طب الأسنان."
+                    )}
                   </p>
                 </div>
               </div>

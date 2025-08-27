@@ -3,18 +3,21 @@
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
+import { useLanguage } from "@/components/theme-provider"
 
 export default function PatientTestimonials() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const { language } = useLanguage()
+  const t = (en: string, ar: string) => (language === "ar" ? ar : en)
 
   const images = [
     {
       src: "/happy-female-patient-smiling-showing-perfect-teeth.png",
-      alt: "Happy Patient 1"
+      alt: t("Happy Patient 1", "مريضة سعيدة 1")
     },
     {
       src: "/professional-woman-smiling-headshot.png", 
-      alt: "Happy Patient 2"
+      alt: t("Happy Patient 2", "مريضة سعيدة 2")
     }
   ]
 
@@ -32,18 +35,21 @@ export default function PatientTestimonials() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="space-y-4">
-              <div className="text-sm text-gray-600 mb-2">Testimonials</div>
+              <div className="text-sm text-gray-600 mb-2">{t("Testimonials", "آراء العملاء")}</div>
               <h2 className="text-4xl font-bold text-gray-900">
-                See Why Patients <span className="text-[#5686E7]">Trust Us</span>
+                {t("See Why Patients ", "لماذا يثق المرضى بنا ")}
+                <span className="text-[#5686E7]">{t("Trust Us", "ثق بنا")}</span>
               </h2>
 
               <div className="space-y-4 mt-8">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  "Absolutely the best dental experience I've ever had. The staff is friendly, the environment is
-                  comfortable, and Dr. Carter did an amazing job with my smile transformation. Highly recommended!"
+                  {t(
+                    "\"Absolutely the best dental experience I've ever had. The staff is friendly, the environment is comfortable, and Dr. Carter did an amazing job with my smile transformation. Highly recommended!\"",
+                    "\"أفضل تجربة أسنان مررت بها. الطاقم ودود والبيئة مريحة، والدكتور قام بعمل رائع في تجميل ابتسامتي. أنصح بها بشدة!\""
+                  )}
                 </p>
 
-                <div className="text-sm text-gray-600">— Sarah M.</div>
+                <div className="text-sm text-gray-600">— {t("Sarah M.", "سارة م.")}</div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">

@@ -5,17 +5,21 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { useLanguage } from "@/components/theme-provider"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const { language, toggleLanguage } = useLanguage()
+
+  const t = (en: string, ar: string) => (language === "ar" ? ar : en)
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/services", label: "Our Services" },
-    { href: "/specialist", label: "Specialist" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: t("Home", "الرئيسية") },
+    { href: "/about", label: t("About Us", "من نحن") },
+    { href: "/services", label: t("Our Services", "خدماتنا") },
+    { href: "/specialist", label: t("Specialist", "الأخصائيون") },
+    { href: "/contact", label: t("Contact", "تواصل معنا") },
   ]
 
   return (
@@ -30,7 +34,7 @@ export default function Navigation() {
               <path d="M12.5 13.5C12.5 15.433 14.067 17 16 17C17.933 17 19.5 15.433 19.5 13.5C19.5 11.567 17.933 10 16 10C14.067 10 12.5 11.567 12.5 13.5Z" stroke="#5686E7" strokeWidth="2.2"/>
             </svg>
           </div>
-          <span className="text-xl font-bold text-gray-900">SmileBright</span>
+          <span className="text-xl font-bold text-gray-900">Drtharaabaath</span>
         </Link>
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-2 ml-6">
@@ -51,13 +55,17 @@ export default function Navigation() {
               </Link>
             )
           })}
-        </div>
-        {/* Get Started Button */}
-        <div className="hidden md:flex items-center">
-          <Button variant="outline" className="border-2 border-[#5686E7] text-[#5686E7] bg-white hover:bg-[#f1f5fd] hover:text-[#5686E7] px-6 py-1.5 rounded-full font-semibold text-base shadow-none transition-colors">
-            Get Started
+          <Button
+            variant="outline"
+            className="border-2 border-[#5686E7] text-[#5686E7] bg-white hover:bg-[#f1f5fd] hover:text-[#5686E7] px-4 py-1.5 rounded-full font-semibold text-base shadow-none transition-colors ml-2"
+            onClick={toggleLanguage}
+            aria-label={t("Switch to Arabic", "التبديل إلى الإنجليزية")}
+          >
+            {language === "ar" ? "EN" : "AR"}
           </Button>
         </div>
+        {/* Get Started Button */}
+        <div className="hidden md:flex items-center"></div>
         {/* Mobile menu button */}
         <button className="md:hidden ml-auto" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -84,8 +92,13 @@ export default function Navigation() {
                 </Link>
               )
             })}
-            <Button variant="outline" className="border-2 border-[#5686E7] text-[#5686E7] bg-white hover:bg-[#f1f5fd] hover:text-[#5686E7] px-6 py-1.5 rounded-full font-semibold text-base shadow-none transition-colors mt-2">
-              Get Started
+            <Button
+              variant="outline"
+              className="border-2 border-[#5686E7] text-[#5686E7] bg-white hover:bg-[#f1f5fd] hover:text-[#5686E7] px-4 py-1.5 rounded-full font-semibold text-base shadow-none transition-colors mt-2"
+              onClick={toggleLanguage}
+              aria-label={t("Switch to Arabic", "التبديل إلى الإنجليزية")}
+            >
+              {language === "ar" ? "EN" : "AR"}
             </Button>
           </div>
         </div>
