@@ -55,7 +55,7 @@ export default function AboutSection() {
 
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 {t("Why ", "لماذا ")}
-                <span className="text-[#5686E7]">SmileBright</span>
+                <span className="text-[#5686E7]">Retal Clinic</span>
                 {t(" Dental?", " للأسنان؟")}
               </h2>
 

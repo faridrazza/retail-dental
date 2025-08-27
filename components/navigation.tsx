@@ -34,7 +34,7 @@ export default function Navigation() {
               <path d="M12.5 13.5C12.5 15.433 14.067 17 16 17C17.933 17 19.5 15.433 19.5 13.5C19.5 11.567 17.933 10 16 10C14.067 10 12.5 11.567 12.5 13.5Z" stroke="#5686E7" strokeWidth="2.2"/>
             </svg>
           </div>
-          <span className="text-xl font-bold text-gray-900">Drtharaabaath</span>
+          <span className="text-xl font-bold text-gray-900">Retal Clinic</span>
         </Link>
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-2 ml-6">
