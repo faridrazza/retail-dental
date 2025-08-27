@@ -4,9 +4,11 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -32,16 +34,23 @@ export default function Navigation() {
         </Link>
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-2 ml-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-5 py-1.5 rounded-full border border-[#dbeafe] bg-white text-gray-900 font-medium text-base hover:bg-[#f1f5fd] transition-colors"
-              style={{ boxShadow: 'none' }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href))
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`px-5 py-1.5 rounded-full border ${
+                  isActive
+                    ? "border-[#5686E7] bg-[#5686E7] text-white"
+                    : "border-[#dbeafe] bg-white text-gray-900 hover:bg-[#f1f5fd]"
+                } font-medium text-base transition-colors`}
+                style={{ boxShadow: 'none' }}
+              >
+                {item.label}
+              </Link>
+            )
+          })}
         </div>
         {/* Get Started Button */}
         <div className="hidden md:flex items-center">
@@ -58,16 +67,23 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden px-6 pt-4 pb-2">
           <div className="flex flex-col gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-5 py-1.5 rounded-full border border-[#dbeafe] bg-white text-gray-900 font-medium text-base hover:bg-[#f1f5fd] transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href))
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`px-5 py-1.5 rounded-full border ${
+                    isActive
+                      ? "border-[#5686E7] bg-[#5686E7] text-white"
+                      : "border-[#dbeafe] bg-white text-gray-900 hover:bg-[#f1f5fd]"
+                  } font-medium text-base transition-colors`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
             <Button variant="outline" className="border-2 border-[#5686E7] text-[#5686E7] bg-white hover:bg-[#f1f5fd] hover:text-[#5686E7] px-6 py-1.5 rounded-full font-semibold text-base shadow-none transition-colors mt-2">
               Get Started
             </Button>
