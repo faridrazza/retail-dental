@@ -12,7 +12,7 @@ export default function SmileBrightHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 md:gap-0">
           {/* Left Content */}
           <div className="space-y-4 md:space-y-5 pl-4 md:pl-16 -mt-2 md:-mt-8" style={{maxWidth: '540px'}}>
-            <h1 className="font-bold text-gray-900 leading-tight text-[28px] sm:text-[32px] md:text-[38px] tracking-[-0.02em]">
+            <h1 className="font-bold text-gray-900 leading-tight text-[28px] sm:text-[32px] md:text-[38px] tracking-[-0.02em] text-center md:text-left">
               Your Comfort, Our<br />
               <span className="text-[#5686E7]">Priority One Smile</span><br />
               <span>at a Time</span>
