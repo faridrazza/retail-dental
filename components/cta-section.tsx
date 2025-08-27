@@ -23,7 +23,7 @@ export default function CTASection() {
               />
             </div>
 
-            <div className="space-y-6">
+            <div className={`space-y-6 ${language === 'ar' ? 'pr-2' : ''}`}>
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold text-gray-900">
                   {t("Get Started on ", "ابدأ ")}

@@ -11,7 +11,7 @@ export default function AboutSection() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className={`grid lg:grid-cols-2 gap-12 items-center ${language === 'ar' ? 'pr-4' : ''}`}>
           {/* Left side - Image with stats */}
           <div className="relative">
             <div className="bg-gradient-to-br from-[#5686E7]/10 to-[#5686E7]/20 rounded-3xl p-8 relative overflow-hidden">
@@ -41,7 +41,7 @@ export default function AboutSection() {
           </div>
 
           {/* Right side - Content */}
-          <div className={`space-y-8 ${dirClass}`}>
+          <div className={`space-y-8 ${dirClass} ${language === 'ar' ? 'pr-4' : ''}`}>
             {/* Header */}
             <div>
               <div className="flex items-center gap-3 mb-4">

@@ -28,7 +28,7 @@ export default function ServicesGrid() {
 
   return (
     <section className="py-16 px-4 bg-gray-50">
-      <div className="container mx-auto">
+      <div className={`container mx-auto ${language === 'ar' ? 'pr-2' : ''}`}>
         <div className="text-center mb-12">
           <div className="text-sm text-gray-600 mb-2">{t("Expert", "خبراء")}</div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

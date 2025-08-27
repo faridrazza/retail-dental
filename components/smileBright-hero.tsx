@@ -16,7 +16,7 @@ export default function SmileBrightHero() {
       <div className="container mx-auto max-w-7xl px-4 md:px-6 pt-3 md:pt-4 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-4 md:gap-0">
           {/* Left Content */}
-          <div className={`space-y-4 md:space-y-5 pl-4 md:pl-16 -mt-2 md:-mt-8 ${dirClass}`} style={{maxWidth: '540px'}}>
+          <div className={`${language === 'ar' ? 'pr-4' : 'pl-4'} md:pl-16 -mt-2 md:-mt-8 space-y-4 md:space-y-5 ${dirClass}`} style={{maxWidth: '540px'}}>
             <h1 className="font-bold text-gray-900 leading-tight text-[28px] sm:text-[32px] md:text-[38px] tracking-[-0.02em] text-center md:text-left md:!text-inherit">
               {t("Your Comfort, Our", "راحتك أولاً، نحن")}<br />
               <span className="text-[#5686E7]">{t("Priority One Smile", "نضع ابتسامتك في المقام الأول")}</span><br />
@@ -56,7 +56,7 @@ export default function SmileBrightHero() {
               />
               
               {/* Text badge inside image */}
-              <div className="absolute bottom-3 md:bottom-4 left-12 md:left-16 z-20">
+              <div className={`absolute bottom-3 md:bottom-4 ${language === 'ar' ? 'right-12 left-auto' : 'left-12'} md:left-16 z-20`}>
                 <div className="bg-white rounded-full px-3 py-1.5 shadow flex items-center gap-2 border border-gray-100 text-[10px] md:text-xs">
                   <span className="text-gray-900 font-semibold">{t("Trusted By", "موثوق من")}</span>
                   <span className="text-gray-600">{t("Happy Customers", "عملاء سعداء")}</span>
@@ -65,7 +65,7 @@ export default function SmileBrightHero() {
             </div>
             
             {/* Avatars outside image container */}
-            <div className="absolute bottom-3 md:bottom-4 -left-8 md:-left-16 z-20 flex items-center">
+            <div className={`absolute bottom-3 md:bottom-4 ${language === 'ar' ? '-right-8 md:-right-16' : '-left-8 md:-left-16'} z-20 flex items-center`}>
               <div className="flex -space-x-2">
                 <Image src="/professional-woman-smiling-headshot.png" alt={t("Customer", "عميل")} width={28} height={28} className="rounded-full border-2 border-white" />
                 <Image src="/professional-man-smiling-headshot.png" alt={t("Customer", "عميل")} width={28} height={28} className="rounded-full border-2 border-white" />

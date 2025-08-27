@@ -33,7 +33,7 @@ export default function PatientTestimonials() {
     <section className="py-16 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className={`space-y-6 ${language === 'ar' ? 'pr-2' : ''}`}>
             <div className="space-y-4">
               <div className="text-sm text-gray-600 mb-2">{t("Testimonials", "آراء العملاء")}</div>
               <h2 className="text-4xl font-bold text-gray-900">
